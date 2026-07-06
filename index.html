@@ -25,8 +25,29 @@
     },
   }
 </script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .reveal-card {
+    opacity: 0;
+    transform: translateY(36px) scale(0.96);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+
+  .reveal-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  #maia, #v8 {
+    color: #ff085b;
+    text-decoration: underline;
+  }
+</style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-primary min-h-screen flex flex-col relative overflow-hidden selection:bg-primary/30 selection:text-primary">
+<body class="bg-background-light dark:bg-background-dark font-display text-primary min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary/30 selection:text-primary">
 <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
 <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[120px]"></div>
 <div class="absolute bottom-[-10%] right-[-5%] w-[30vw] h-[30vw] rounded-full bg-primary/5 blur-[100px]"></div>
@@ -45,7 +66,7 @@
     Disponível</div>
 <main class="flex-1 w-full mx-auto flex flex-col md:flex-row items-end justify-between relative z-10 min-h-screen px-8 md:px-12 pb-16 md:pb-24 pt-32">
 <div class="flex flex-col items-start w-full md:w-1/3 gap-8 md:pl-12">
-<div class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full bg-cover bg-center border-4 border-primary/40 ring-4 ring-primary/20 shadow-[0_0_40px_rgba(255,8,91,0.5)]" data-alt="Amanda May Portrait" style="background-image: url(./pics/yuna\ pc.jpg);">
+<div class="w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full bg-cover bg-center border-4 border-primary/40 ring-4 ring-primary/20 shadow-[0_0_40px_rgba(255,8,91,0.5)]" data-alt="Amanda May Portrait" style="background-image: url(./pics/amanda.jpg);">
 </div>
 <div class="flex flex-row items-end gap-6">
 <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[8rem] font-black leading-[0.8] tracking-tighter drop-shadow-[0_0_15px_rgba(255,8,91,0.6)]" style="">
@@ -77,5 +98,104 @@
             RESUME
         </a>
 </div>
+<a aria-label="Scroll down" class="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center justify-center text-primary/80 transition-transform hover:scale-110" href="#sobre">
+<span class="flex h-12 w-12 items-center justify-center rounded-full border border-primary/40 bg-primary/10 shadow-[0_0_20px_rgba(255,8,91,0.18)] animate-bounce" style="animation-duration: 1.4s;">
+<svg aria-hidden="true" class="h-8 w-8 text-primary drop-shadow-[0_0_10px_rgba(255,8,91,0.85)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+<path stroke-linecap="round" stroke-linejoin="round" d="M7 8l5 5 5-5"></path>
+<path stroke-linecap="round" stroke-linejoin="round" d="M7 15l5 5 5-5"></path>
+</svg>
+</span>
+</a>
 </main>
+<section id="sobre" class="relative z-10 w-full px-8 md:px-12 pb-20 md:pb-28 pt-6 md:pt-10">
+<div class="max-w-6xl mx-auto reveal-card border border-primary/35 bg-[#fff7f9]/70 dark:bg-[#2f121d]/80 backdrop-blur-xl shadow-[0_0_40px_rgba(255,8,91,0.18)] rounded-[1.5rem] overflow-hidden">
+<div class="grid md:grid-cols-[0.9fr_1.1fr] gap-0">
+<div class="p-8 md:p-10 border-b md:border-b-0 md:border-r border-primary/20 bg-primary/5">
+<p class="text-xs font-bold tracking-[0.3em] uppercase text-primary/70">Sobre mim</p>
+<h2 class="mt-4 text-3xl md:text-5xl font-black leading-tight uppercase text-primary">Amanda Mayumi</h2>
+<p class="mt-4 text-base md:text-lg text-primary/80 leading-relaxed">
+  Tenho 21 anos, gosto muito de tecnologia, de aprender um pouquinho todos os dias e de transformar ideias em projetos pessoais. Quando não estou fazendo nada disso no meu tempo livre, gosto de desenhar, jogar jogos competitivos, aprender sobre o universo ou descobrir alguma tecnologia nova.
+</p>
+</div>
+<div class="p-8 md:p-10 flex flex-col justify-between gap-8">
+<div>
+<p class="text-sm uppercase tracking-[0.25em] text-primary/60 font-bold">Profissionalmente</p>
+<div class="mt-4 rounded-2xl border border-primary/20 bg-background-light/60 dark:bg-background-dark/40 p-5 md:p-6 text-primary/85 leading-relaxed">
+  Estudante de Engenharia da Computação com foco em Desenvolvimento de Software Full Stack. Possui experiência em desenvolvimento e manutenção de aplicações web com React e Django, atuando em front-end e back-end. Também tem experiência em Python para Visão Computacional e IA (<a id="maia" href="http://lince.facens.br/maia-mobilidade-aplicada-e-inteligencia-artificial/">MAIA Facens</a>) e em desenvolvimento de firmware em C/C++ para microcontroladores na equipe <a id="v8" href="https://lince.facens.br/v8-racing/">V8 Racing</a> (Fórmula SAE). Proficiente em React.js, Node.js, Java, JavaScript, HTML/CSS e Python, busca oportunidades para aplicar raciocínio lógico e evoluir tecnicamente no desenvolvimento de software.
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-sm font-bold uppercase tracking-[0.2em]">Full-stack</span>
+<span class="px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-sm font-bold uppercase tracking-[0.2em]">Desenvolvimento de Software</span>
+<span class="px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-sm font-bold uppercase tracking-[0.2em]">Inteligência Artificial (IA)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="projetos" class="relative z-10 w-full px-8 md:px-12 pb-20 md:pb-28">
+<div class="max-w-6xl mx-auto">
+<div class="flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
+<div>
+<p class="text-xs font-bold tracking-[0.3em] uppercase text-primary/60">Projetos</p>
+<h2 class="mt-3 text-3xl md:text-5xl font-black uppercase text-primary">O que eu construí</h2>
+</div>
+<p class="max-w-xl text-primary/70 leading-relaxed">Aqui você pode ver alguns dos projetos em que trabalhei, tanto acadêmicos quanto pessoais.</p>
+</div>
+<div class="grid gap-6 md:grid-cols-3">
+<article class="border border-primary/25 bg-primary/5 rounded-[1.5rem] p-6 md:p-7 shadow-[0_0_30px_rgba(255,8,91,0.08)]">
+<p class="text-xs uppercase tracking-[0.25em] font-bold text-primary/60">Projeto 01</p>
+<h3 class="mt-4 text-2xl font-black uppercase">Card em destaque</h3>
+<p class="mt-4 text-primary/75 leading-relaxed">Espaço para descrever o projeto, tecnologia usada e o objetivo dele.</p>
+</article>
+<article class="border border-primary/25 bg-primary/5 rounded-[1.5rem] p-6 md:p-7 shadow-[0_0_30px_rgba(255,8,91,0.08)]">
+<p class="text-xs uppercase tracking-[0.25em] font-bold text-primary/60">Projeto 02</p>
+<h3 class="mt-4 text-2xl font-black uppercase">Projeto visual</h3>
+<p class="mt-4 text-primary/75 leading-relaxed">Outro bloco pronto para imagem, link externo e detalhes do trabalho.</p>
+</article>
+<article class="border border-primary/25 bg-primary/5 rounded-[1.5rem] p-6 md:p-7 shadow-[0_0_30px_rgba(255,8,91,0.08)]">
+<p class="text-xs uppercase tracking-[0.25em] font-bold text-primary/60">Projeto 03</p>
+<h3 class="mt-4 text-2xl font-black uppercase">Projeto futuro</h3>
+<p class="mt-4 text-primary/75 leading-relaxed">Use este card para um case extra, portfólio ou estudo mais recente.</p>
+</article>
+</div>
+</div>
+</section>
+<section id="resume" class="relative z-10 w-full px-8 md:px-12 pb-24 md:pb-32">
+<div class="max-w-6xl mx-auto border border-primary/25 rounded-[1.75rem] bg-primary/5 dark:bg-[#2a1019]/70 backdrop-blur-lg p-8 md:p-12 shadow-[0_0_40px_rgba(255,8,91,0.12)]">
+<div class="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+<div>
+<p class="text-xs font-bold tracking-[0.3em] uppercase text-primary/60">Resume</p>
+<h2 class="mt-3 text-3xl md:text-5xl font-black uppercase text-primary">Meu currículo</h2>
+<p class="mt-4 text-primary/75 leading-relaxed">Aqui você encontra meu currículo com minha experiência, formação, tecnologias e projetos que marcaram minha trajetória como desenvolvedora.</p>
+</div>
+<div class="flex flex-col gap-4">
+<a class="inline-flex items-center justify-between gap-4 px-5 py-4 rounded-2xl border border-primary/30 bg-primary text-background-light font-bold uppercase tracking-[0.2em] shadow-[0_0_25px_rgba(255,8,91,0.25)] hover:scale-[1.01] transition-transform" href="./curriculo.pdf" download>
+<span>Baixar PDF</span>
+<span>↗</span>
+</a>
+<div class="rounded-2xl border border-primary/20 bg-background-light/70 dark:bg-background-dark/40 p-5 text-primary/80 leading-relaxed">
+• 🎓 Engenharia da Computação (FACENS) <br>
+• 💼 Experiência em Desenvolvimento Full Stack<br>
+• ⚛️ React • Node.js • Django • Python<br>
+• 🤖 IA, Visão Computacional e Sistemas Embarcados<br>
+• 📁 PostgreSQL • SQL • Git • Docker • Linux<br>
+• 🏆 Menção Honrosa na OBMEP
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+  const cards = document.querySelectorAll('.reveal-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach((card) => observer.observe(card));
+</script>
 </body></html>

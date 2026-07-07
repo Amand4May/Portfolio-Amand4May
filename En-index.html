@@ -41,6 +41,16 @@
     transform: translateY(0) scale(1);
   }
 
+  .project-modal {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .project-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   #maia, #v8 {
     color: #ff085b;
     text-decoration: underline;
@@ -142,22 +152,33 @@
 </div>
 <p class="max-w-xl text-primary/70 leading-relaxed">Here you can see some of the projects I have worked on, both academic and personal.</p>
 </div>
-<div class="grid gap-6 md:grid-cols-3">
-<article class="border border-primary/25 bg-primary/5 rounded-[1.5rem] p-6 md:p-7 shadow-[0_0_30px_rgba(255,8,91,0.08)]">
-<p class="text-xs uppercase tracking-[0.25em] font-bold text-primary/60">Project 01</p>
-<h3 class="mt-4 text-2xl font-black uppercase">Featured card</h3>
-<p class="mt-4 text-primary/75 leading-relaxed">Space to describe the project, the tech stack, and the goal behind it.</p>
-</article>
-<article class="border border-primary/25 bg-primary/5 rounded-[1.5rem] p-6 md:p-7 shadow-[0_0_30px_rgba(255,8,91,0.08)]">
-<p class="text-xs uppercase tracking-[0.25em] font-bold text-primary/60">Project 02</p>
-<h3 class="mt-4 text-2xl font-black uppercase">Visual project</h3>
-<p class="mt-4 text-primary/75 leading-relaxed">Another block ready for an image, an external link, and work details.</p>
-</article>
-<article class="border border-primary/25 bg-primary/5 rounded-[1.5rem] p-6 md:p-7 shadow-[0_0_30px_rgba(255,8,91,0.08)]">
-<p class="text-xs uppercase tracking-[0.25em] font-bold text-primary/60">Project 03</p>
-<h3 class="mt-4 text-2xl font-black uppercase">Future project</h3>
-<p class="mt-4 text-primary/75 leading-relaxed">Use this card for an extra case study, portfolio piece, or recent experiment.</p>
-</article>
+<div id="project-grid" class="grid gap-6 md:grid-cols-3"></div>
+</div>
+</div>
+<div id="project-modal" class="project-modal fixed inset-0 z-50 hidden items-center justify-center bg-black/75 px-6 py-10 backdrop-blur-sm">
+<div class="relative w-full max-w-4xl overflow-hidden rounded-[1.75rem] border border-primary/30 bg-[#fff7f9] dark:bg-[#250f17] shadow-[0_0_60px_rgba(255,8,91,0.22)]">
+<button type="button" data-modal-close class="absolute right-4 top-4 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-primary/25 bg-primary/10 text-primary transition-transform hover:scale-105" aria-label="Close popup">
+<span class="text-2xl leading-none">×</span>
+</button>
+<div class="grid md:grid-cols-[1.1fr_0.9fr]">
+<div class="p-4 md:p-5 border-b md:border-b-0 md:border-r border-primary/20 bg-[#120812]">
+<div class="h-[22rem] md:h-[30rem] rounded-[1.25rem] border border-primary/20 bg-[#0b0610] bg-contain bg-center bg-no-repeat" data-modal-image style="background-image: url(./pics/telainicial.jpeg);"></div>
+<div class="mt-4 grid grid-cols-4 gap-3" data-modal-gallery></div>
+</div>
+<div class="p-6 md:p-8 lg:p-10 flex flex-col gap-5">
+<p class="text-xs font-bold tracking-[0.3em] uppercase text-primary/60">Project details</p>
+<div>
+<h3 class="text-3xl md:text-4xl font-black uppercase text-primary" data-modal-title>Project</h3>
+<p class="mt-4 text-primary/80 leading-relaxed" data-modal-description>Project description.</p>
+</div>
+<div class="flex flex-wrap gap-3" data-modal-tags></div>
+<div class="rounded-2xl border border-primary/20 bg-primary/5 p-4 text-sm text-primary/75 leading-relaxed">
+<p class="font-bold uppercase tracking-[0.2em] text-primary/60">Repository</p>
+<a class="mt-2 inline-flex items-center gap-2 text-primary font-bold underline decoration-primary decoration-2 underline-offset-4 hover:decoration-primary" data-modal-repo href="#" target="_blank" rel="noreferrer">Open repository</a>
+<p class="mt-3 text-primary/60">The main image shows the full screen, and the thumbnails below let you inspect other parts of the project.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -187,6 +208,112 @@
 </div>
 </section>
 <script>
+  const projects = [
+    {
+      number: 'Project 01',
+      title: 'Lume 3D 3D Printing E-commerce',
+      image: './pics/telainicial.jpeg',
+      gallery: ['./pics/telainicial.jpeg', './pics/carrinho.jpeg', './pics/login.jpeg', './pics/pagamento.jpeg', './pics/pagamentoapi.jpeg'],
+      description: 'An on-demand 3D printing e-commerce platform with product catalog, shipping calculation, checkout, and responsive design.',
+      repository: 'https://github.com/Amand4May/lume3d-front',
+      repositoryLabel: 'Lume 3D on GitHub',
+      tags: ['E-commerce', 'Prototype', 'React', 'TypeScript', 'Django', 'PostgreSQL'],
+    },
+    {
+      number: 'Project 02',
+      title: 'SmartBite - IoT Pet Feeding System',
+      image: './pics/smartbite.jpeg',
+      gallery: ['./pics/smartbite.jpeg'],
+      description: 'A smart pet feeding management system with automatic feeder control, portion calculation, scheduling, and consumption dashboard.',
+      repository: 'https://github.com/Amand4May/smartbite-prototipo',
+      repositoryLabel: 'SmartBite on GitHub',
+      tags: ['Prototype', 'React', 'IoT', 'PostgreSQL', 'Python'],
+    },
+    {
+      number: 'Project 03',
+      title: 'Work in progress',
+      image: '',
+      gallery: ['./pics/pagamentoapi.jpeg', './pics/pagamento.jpeg'],
+      description: 'A third card for a study, portfolio piece, or recent experiment while keeping the layout balanced.',
+      repository: 'https://github.com/Amand4May/your-project',
+      repositoryLabel: 'Project repository',
+      tags: ['Study', 'Portfolio', 'In progress'],
+    },
+  ];
+
+  const projectGrid = document.getElementById('project-grid');
+  const projectModal = document.getElementById('project-modal');
+  const modalTitle = projectModal.querySelector('[data-modal-title]');
+  const modalDescription = projectModal.querySelector('[data-modal-description]');
+  const modalTags = projectModal.querySelector('[data-modal-tags]');
+  const modalImage = projectModal.querySelector('[data-modal-image]');
+  const modalGallery = projectModal.querySelector('[data-modal-gallery]');
+  const modalRepo = projectModal.querySelector('[data-modal-repo]');
+
+  function setActiveImage(imagePath) {
+    modalImage.style.backgroundImage = `url(${imagePath})`;
+  }
+
+  projectGrid.innerHTML = projects.map((project, index) => `
+    <button type="button" class="group reveal-card text-left border border-primary/25 bg-primary/5 rounded-[1.5rem] overflow-hidden shadow-[0_0_30px_rgba(255,8,91,0.08)] hover:-translate-y-1 hover:border-primary/45 transition-all duration-300" data-project-index="${index}">
+      <div class="relative h-64 bg-cover bg-center" style="background-image: linear-gradient(180deg, rgba(35,15,22,0.05) 0%, rgba(35,15,22,0.2) 48%, rgba(35,15,22,0.88) 100%), url(${project.image});">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#18060d]/90 via-transparent to-transparent"></div>
+        <div class="absolute left-4 top-4 inline-flex rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary backdrop-blur-sm">${project.number}</div>
+        <div class="absolute bottom-4 left-4 right-4">
+          <p class="text-xs font-bold uppercase tracking-[0.25em] text-primary/70">Click to open</p>
+          <h3 class="mt-2 text-2xl font-black uppercase text-[#fff7f9] drop-shadow-[0_0_18px_rgba(255,8,91,0.25)]">${project.title}</h3>
+        </div>
+      </div>
+      <div class="p-6 md:p-7">
+        <p class="text-primary/75 leading-relaxed">${project.description}</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          ${project.tags.map((tag) => `<span class="rounded-full border border-primary/35 bg-[#2a1019]/80 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.2em] text-primary">${tag}</span>`).join('')}
+        </div>
+      </div>
+    </button>
+  `).join('');
+
+  function openProject(index) {
+    const project = projects[index];
+    modalTitle.textContent = project.title;
+    modalDescription.textContent = project.description;
+    setActiveImage(project.image);
+    modalGallery.innerHTML = project.gallery.map((imagePath, imageIndex) => `
+      <button type="button" class="overflow-hidden rounded-xl border border-primary/20 transition-transform hover:scale-[1.02]" data-gallery-image="${imagePath}" aria-label="View image ${imageIndex + 1}">
+        <div class="h-20 bg-cover bg-center" style="background-image: url(${imagePath});"></div>
+      </button>
+    `).join('');
+    modalGallery.querySelectorAll('[data-gallery-image]').forEach((thumb) => {
+      thumb.addEventListener('click', () => setActiveImage(thumb.dataset.galleryImage));
+    });
+    modalTags.innerHTML = project.tags.map((tag) => `<span class="rounded-full border border-primary/35 bg-[#2a1019]/80 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-primary">${tag}</span>`).join('');
+    modalRepo.textContent = project.repositoryLabel;
+    modalRepo.href = project.repository;
+    projectModal.classList.remove('hidden');
+    projectModal.classList.add('flex', 'is-open');
+  }
+
+  function closeProject() {
+    projectModal.classList.remove('is-open', 'flex');
+    projectModal.classList.add('hidden');
+  }
+
+  projectGrid.querySelectorAll('[data-project-index]').forEach((card) => {
+    card.addEventListener('click', () => openProject(Number(card.dataset.projectIndex)));
+  });
+
+  projectModal.addEventListener('click', (event) => {
+    if (event.target === projectModal || event.target.closest('[data-modal-close]')) {
+      closeProject();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+      closeProject();
+    }
+  });
+
   const cards = document.querySelectorAll('.reveal-card');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

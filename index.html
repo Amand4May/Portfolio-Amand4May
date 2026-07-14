@@ -74,6 +74,9 @@
   }
 </style>
 </head>
+
+<!-- Inicio -->
+
 <body class="bg-background-light dark:bg-background-dark font-display text-primary min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary/30 selection:text-primary">
 <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
 <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-primary/10 blur-[120px]"></div>
@@ -134,6 +137,9 @@
 </span>
 </a>
 </main>
+
+<!-- Sobre mim -->
+
 <section id="sobre" class="relative z-10 w-full px-4 sm:px-8 md:px-12 pb-16 sm:pb-20 md:pb-24 lg:pb-28 pt-4 sm:pt-6 md:pt-10">
 <div class="max-w-6xl mx-auto reveal-card border border-primary/35 bg-[#fff7f9]/70 dark:bg-[#2f121d]/80 backdrop-blur-xl shadow-[0_0_40px_rgba(255,8,91,0.18)] rounded-lg sm:rounded-2xl md:rounded-[1.5rem] overflow-hidden">
 <div class="grid md:grid-cols-[0.9fr_1.1fr] gap-0">
@@ -159,6 +165,9 @@
 </div>
 </div>
 </div>
+
+<!-- Projetos -->
+
 </section>
 <section id="projetos" class="relative z-10 w-full px-4 sm:px-8 md:px-12 pb-16 sm:pb-20 md:pb-24 lg:pb-28">
 <div class="max-w-6xl mx-auto">
@@ -169,6 +178,69 @@
 </div>
 <p class="max-w-xl text-sm sm:text-base text-primary/70 leading-relaxed">Aqui você pode ver alguns dos projetos em que trabalhei, tanto acadêmicos quanto pessoais.</p>
 </div>
+
+<!-- Projeto em destaque -->
+
+<div class="reveal-card mb-8 sm:mb-10 md:mb-12 border border-primary/35 bg-[#fff7f9]/70 dark:bg-[#2f121d]/80 backdrop-blur-xl shadow-[0_0_50px_rgba(255,8,91,0.22)] rounded-lg sm:rounded-2xl md:rounded-[1.75rem] overflow-hidden">
+<div class="grid md:grid-cols-[0.95fr_1.05fr] gap-0">
+<div class="relative p-6 sm:p-8 md:p-10 border-b md:border-b-0 md:border-r border-primary/20 bg-[#120812] flex flex-col justify-center gap-3 sm:gap-4 overflow-hidden min-h-[300px] sm:min-h-[340px]">
+<div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url(./pics/readme-generator.png);"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-[#120812]/50 via-[#120812]/70 to-[#120812]/92"></div>
+<div class="absolute top-5 left-5 sm:top-6 sm:left-6 z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-primary text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
+<span class="relative flex h-2.5 w-2.5">
+<span class="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+        Novo
+    </div>
+<div class="relative z-10 mt-10 sm:mt-12 flex flex-col gap-3">
+<div class="flex items-center gap-3 rounded-xl border border-primary/25 bg-primary/5 px-4 py-3 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-2xl">folder_zip</span>
+<span class="text-sm sm:text-base font-bold text-primary/85">Upload do .zip do repositório</span>
+</div>
+<span class="ml-6 text-primary/50 text-xl leading-none">↓</span>
+<div class="flex items-center gap-3 rounded-xl border border-primary/25 bg-primary/5 px-4 py-3 backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-2xl">psychology</span>
+<span class="text-sm sm:text-base font-bold text-primary/85">IA lê os arquivos e extrai o contexto real</span>
+</div>
+<span class="ml-6 text-primary/50 text-xl leading-none">↓</span>
+<div class="flex items-center gap-3 rounded-xl border border-primary/40 bg-primary/20 px-4 py-3 shadow-[0_0_25px_rgba(255,8,91,0.25)] backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary text-2xl">description</span>
+<span class="text-sm sm:text-base font-bold text-primary">README gerado sem alucinações</span>
+</div>
+</div>
+</div>
+<div class="p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between gap-5 sm:gap-6">
+<div>
+<p class="text-xs font-bold tracking-[0.3em] uppercase text-primary/60">Projeto em destaque</p>
+<h3 class="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase leading-[0.95] text-primary">Gerador de README com IA</h3>
+<p class="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-primary/80 leading-relaxed">
+    Aplicação Full-Stack que gera documentação automaticamente. No <span class="font-bold text-primary">Modo Manual</span>, você descreve a ideia geral do projeto e a IA estrutura o documento. No <span class="font-bold text-primary">Modo RAG</span> — o diferencial — você envia o .zip do repositório e o backend varre a arquitetura, lê os arquivos reais e gera um README baseado no código de verdade, sem alucinações.
+</p>
+</div>
+<div class="flex flex-wrap gap-2 sm:gap-3">
+<span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary/30 bg-primary/10 text-xs sm:text-sm font-bold uppercase tracking-[0.15em]">React + Vite</span>
+<span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary/30 bg-primary/10 text-xs sm:text-sm font-bold uppercase tracking-[0.15em]">Node.js + Express</span>
+<span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary/30 bg-primary/10 text-xs sm:text-sm font-bold uppercase tracking-[0.15em]">Groq · Llama 3.1</span>
+<span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary/30 bg-primary/10 text-xs sm:text-sm font-bold uppercase tracking-[0.15em]">RAG</span>
+<span class="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-primary/30 bg-primary/10 text-xs sm:text-sm font-bold uppercase tracking-[0.15em]">Vercel · Render</span>
+</div>
+<div class="flex flex-col sm:flex-row gap-3">
+<a class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-primary/30 bg-primary text-background-light font-bold uppercase tracking-[0.2em] text-sm shadow-[0_0_25px_rgba(255,8,91,0.25)] hover:scale-[1.02] transition-transform" href="https://lnkd.in/dd2ny9iN" target="_blank" rel="noreferrer">
+<span>Testar agora</span>
+<span>↗</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl border border-primary/30 bg-primary/10 text-primary font-bold uppercase tracking-[0.2em] text-sm hover:bg-primary/20 transition-colors" href="https://github.com/Amand4May/readme-generator-api" target="_blank" rel="noreferrer">
+<span>Ver repositório</span>
+<span>↗</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Projetos 1, 2, 3... -->
+
 <div id="project-grid" class="grid gap-6 md:grid-cols-3"></div>
 </div>
 </div>
@@ -199,6 +271,9 @@
 </div>
 </div>
 </section>
+
+<!-- Resume/Curriculo -->
+
 <section id="resume" class="relative z-10 w-full px-4 sm:px-8 md:px-12 pb-16 sm:pb-20 md:pb-24 lg:pb-32">
 <div class="max-w-6xl mx-auto border border-primary/25 rounded-lg sm:rounded-2xl md:rounded-[1.75rem] bg-primary/5 dark:bg-[#2a1019]/70 backdrop-blur-lg p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_0_40px_rgba(255,8,91,0.12)]">
 <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-4 sm:gap-6 md:gap-8 items-start">
@@ -224,6 +299,9 @@
 </div>
 </div>
 </section>
+
+<!-- Js dos projetos -->
+
 <script>
   const projects = [
     {
